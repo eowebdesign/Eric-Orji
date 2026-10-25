@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison | Restaurant Demo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #11100e;
+            color: #f5eee2;
+            font-family: Georgia, serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 8%;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+
+        nav a {
+            color: #e8dac4;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800")
+        center / cover no-repeat;
+}
+
+
+        .hero p {
+            color: #c9a875;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 9vw, 110px);
+            font-weight: normal;
+        }
+
+        .subtitle {
+            max-width: 500px;
+            margin: 25px auto;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 16px 35px;
+            background: #c9a875;
+            color: #11100e;
+            text-decoration: none;
+        }
+
+        .about {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            color: #c8bdad;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #403629;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+        }
+        
+/* LUXURY RESTAURANT MENU */
+
+.menu {
+    padding: 100px 8%;
+    background: #191612;
+    text-align: center;
+}
+
+.menu-label {
+    color: #c9a875;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.menu h2 {
+    font-size: clamp(36px, 5vw, 55px);
+    font-weight: normal;
+}
+
+.menu-intro {
+    color: #b9aa96;
+    margin: 20px auto 50px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: #211c17;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover img {
+    transform: scale(1.04);
+}
+
+.menu-info {
+    padding: 30px;
+}
+
+.menu-info h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.menu-info p {
+    color: #b9aa96;
+    line-height: 1.6;
+}
+
+.menu-info span {
+    display: block;
+    margin-top: 20px;
+    color: #c9a875;
+    font-size: 22px;
+}
+
+@media (max-width: 850px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.booking {
+    background: #211c17;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.booking h2 {
+    color: #c9a875;
+    font-size: 48px;
+}
+
+.booking-form {
+    max-width: 650px;
+    margin: 30px auto;
+    display: grid;
+    gap: 15px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form button {
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* LUXURY SCROLL ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth hover effects */
+
+.menu-card {
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 40px rgba(201,168,117,0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+    </style>
+</head>
+
+<script>
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingMessage = document.getElementById("bookingMessage");
+
+    bookingForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        bookingMessage.textContent =
+            "Thank you! This is a demo reservation. " +
+            "No booking has been sent.";
+
+        bookingForm.reset();
+    });
+    
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #c9a875;
+}
+
+</script>
+
+<body>
+
+    <header>
+        <div class="logo">MAISON</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">Our Story</a>
+            <a href="#menu">Menu</a>
+            <a href="#bookings">Reservations</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <p>FINE DINING EXPERIENCE</p>
+        <h1>MAISON</h1>
+        <div class="subtitle">
+            An unforgettable dining experience,
+            where elegance meets flavour.
+        </div>
+        <a href="#about" class="btn">Discover More</a>
+    </section>
+
+    <section class="about" id="about">
+        <h2>A Taste of Elegance</h2>
+        <p>
+            Welcome to Maison, a fictional restaurant
+            concept created to showcase premium web design.
+            Every detail is crafted to create an
+            unforgettable digital experience.
+        </p>
+    </section>
+
+<section class="menu" id="menu">
+    <p class="menu-label">THE MAISON EXPERIENCE</p>
+    <h2>Our Signature Menu</h2>
+    <p class="menu-intro">
+        A celebration of flavour, creativity and elegance.
+    </p>
+
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img
+                src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=900"
+                alt="Gourmet steak dish"
+                loading="lazy"
+            >
+            <div class="menu-info">
+                <h3>Signature Steak</h3>
+                <p>Perfectly prepared with seasonal ingredients.</p>
+                <span>£32</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900"
+                alt="Fresh pasta dish"
+                loading="lazy"
+            >
+            <div class="menu-info">
+                <h3>Artisan Pasta</h3>
+                <p>Fresh pasta with a rich, delicate sauce.</p>
+                <span>£24</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img
+                src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900"
+                alt="Elegant dessert"
+                loading="lazy"
+            >
+            <div class="menu-info">
+                <h3>Maison Dessert</h3>
+                <p>A sweet finish to an unforgettable evening.</p>
+                <span>£14</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="booking" id="booking">
+    <p class="booking-label">AN EVENING TO REMEMBER</p>
+    <h2>Reserve Your Table</h2>
+    <p class="booking-intro">
+        Your unforgettable dining experience begins here.
+    </p>
+
+    <form class="booking-form" id="bookingForm">
+        <input type="text" name="guest" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="date" name="date" required>
+
+        <select name="time" required>
+            <option value="">Select Time</option>
+            <option>17:00</option>
+            <option>18:00</option>
+            <option>19:00</option>
+            <option>20:00</option>
+            <option>21:00</option>
+        </select>
+
+        <select name="guests" required>
+            <option value="">Number of Guests</option>
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+            <option>5+ Guests</option>
+        </select>
+
+        <button type="submit">Request Reservation</button>
+    </form>
+
+    <p class="booking-message" id="bookingMessage"
+       role="status" aria-live="polite"></p>
+    <p class="demo-notice">
+        Demo only — no real reservations are made.
+    </p>
+</section>
+
+    <footer>
+        Restaurant concept by EO Web Design
+    </footer>
+
+<script>
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingMessage = document.getElementById("bookingMessage");
+
+    bookingForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        bookingMessage.textContent =
+            "Thank you! This is a demo reservation. " +
+            "No booking has been sent.";
+
+        bookingForm.reset();
+    });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(
+        ".about, .menu, .booking"
+    );
+
+    if (!("IntersectionObserver" in window)) {
+        return;
+    }
+
+    if (window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches) {
+        return;
+    }
+
+    sections.forEach(section => {
+        section.classList.add("reveal");
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => observer.observe(section));
+});
+</script>
+
+</body>
+</html>

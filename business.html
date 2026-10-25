@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA DIGITAL | Future-Ready Solutions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050914;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            max-width: 1400px;
+            margin: auto;
+            padding: 28px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #398bff;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #c5d0e5;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #398bff;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 7%;
+            background:
+                radial-gradient(
+                    ellipse at 50% 40%,
+                    rgba(27, 91, 220, 0.3),
+                    transparent 65%
+                );
+        }
+
+        .hero-content {
+            max-width: 950px;
+            animation: fadeUp 1s ease;
+        }
+
+        .eyebrow {
+            color: #65a6ff;
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 90px);
+            line-height: 1.1;
+            font-weight: 900;
+        }
+
+        h1 span {
+            color: #398bff;
+            text-shadow: 0 0 35px rgba(57,139,255,0.4);
+        }
+
+        .hero-description {
+            max-width: 620px;
+            margin: 30px auto;
+            color: #aab8d2;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            background: #398bff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 35px rgba(57,139,255,0.45);
+        }
+
+        .about {
+            max-width: 1100px;
+            margin: auto;
+            padding: 110px 7%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .about h2 span {
+            color: #398bff;
+        }
+
+        .about p {
+            color: #aab8d2;
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 35px;
+            text-align: center;
+            color: #aab8d2;
+            border-top: 1px solid #1b2c4b;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content {
+                animation: none;
+            }
+        }
+        
+/* NOVA DIGITAL SERVICES */
+
+.services {
+    padding: 110px 7%;
+    background: #080f20;
+    text-align: center;
+}
+
+.section-label {
+    color: #65a6ff;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.services h2 {
+    font-size: clamp(32px, 5vw, 55px);
+}
+
+.services h2 span {
+    color: #398bff;
+}
+
+.services-intro {
+    color: #aab8d2;
+    margin: 20px auto 50px;
+    line-height: 1.7;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.service-card {
+    background: #0d1830;
+    border: 1px solid #233b68;
+    border-radius: 18px;
+    padding: 45px 28px;
+    text-align: left;
+    transition: 0.35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: #398bff;
+    box-shadow: 0 0 35px rgba(57,139,255,0.2);
+}
+
+.service-icon {
+    color: #398bff;
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.service-card p {
+    color: #aab8d2;
+    line-height: 1.8;
+    min-height: 140px;
+}
+
+.service-btn {
+    background: transparent;
+    color: #65a6ff;
+    border: 1px solid #398bff;
+    border-radius: 8px;
+    padding: 13px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.service-btn:hover {
+    background: #398bff;
+    color: white;
+}
+
+.service-message {
+    color: #65a6ff;
+    margin-top: 30px;
+}
+
+@media (max-width: 850px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card p {
+        min-height: auto;
+        margin-bottom: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-btn {
+        transition: none;
+    }
+}
+
+/* NOVA CONTACT SECTION */
+
+.contact {
+    padding: 110px 7%;
+    background: #050914;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: clamp(32px, 5vw, 55px);
+}
+
+.contact h2 span {
+    color: #398bff;
+}
+
+.contact-intro {
+    color: #aab8d2;
+    margin: 20px auto 45px;
+}
+
+.contact-form {
+    max-width: 750px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    min-width: 0;
+    background: #0d1830;
+    border: 1px solid #233b68;
+    border-radius: 10px;
+    padding: 18px;
+    color: white;
+    font: inherit;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #398bff;
+    box-shadow: 0 0 20px rgba(57,139,255,0.15);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #aab8d2;
+}
+
+.contact-form button {
+    background: #398bff;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #2675e0;
+    box-shadow: 0 0 30px rgba(57,139,255,0.35);
+    transform: translateY(-3px);
+}
+
+.contact-message {
+    color: #65a6ff;
+    margin-top: 25px;
+}
+
+.demo-notice {
+    color: #aab8d2;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+@media (max-width: 650px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">NOVA<span>DIGITAL</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO NOVA DIGITAL</p>
+
+                <h1>BUILDING THE <span>FUTURE.</span></h1>
+
+                <p class="hero-description">
+                    Innovative digital solutions for
+                    ambitious businesses. Transforming
+                    ideas into powerful experiences.
+                </p>
+
+                <a href="#about" class="btn">
+                    EXPLORE NOVA
+                </a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>INNOVATION <span>FIRST.</span></h2>
+            <p>
+                NOVA DIGITAL is a fictional technology
+                company concept created by EO Web Design.
+                A sleek digital experience built around
+                innovation, creativity and modern design.
+            </p>
+        </section>
+        
+<section class="services" id="services">
+    <p class="section-label">WHAT WE DO</p>
+    <h2>OUR <span>EXPERTISE.</span></h2>
+    <p class="services-intro">
+        Powerful digital solutions for modern businesses.
+    </p>
+
+    <div class="services-grid">
+
+        <article class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Digital Strategy</h3>
+            <p>
+                Helping businesses build a clear digital
+                direction through creative thinking
+                and modern solutions.
+            </p>
+            <button class="service-btn"
+                    data-service="Digital Strategy">
+                EXPLORE SERVICE →
+            </button>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">⌘</div>
+            <h3>Web Development</h3>
+            <p>
+                Creating responsive, high-performance
+                websites designed for a seamless
+                online experience.
+            </p>
+            <button class="service-btn"
+                    data-service="Web Development">
+                EXPLORE SERVICE →
+            </button>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">◈</div>
+            <h3>Brand Identity</h3>
+            <p>
+                Building distinctive digital identities
+                that help businesses communicate
+                their vision.
+            </p>
+            <button class="service-btn"
+                    data-service="Brand Identity">
+                EXPLORE SERVICE →
+            </button>
+        </article>
+
+    </div>
+
+    <p class="service-message" id="serviceMessage"
+       role="status" aria-live="polite"></p>
+</section>
+
+<section class="contact" id="contact">
+    <p class="section-label">START A CONVERSATION</p>
+    <h2>LET'S BUILD <span>SOMETHING GREAT.</span></h2>
+    <p class="contact-intro">
+        Have an idea? Tell us about your next project.
+    </p>
+
+    <form class="contact-form" id="novaContactForm">
+        <div class="form-row">
+            <input type="text"
+                   name="name"
+                   placeholder="Your Name"
+                   required>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Email Address"
+                   required>
+        </div>
+
+        <input type="text"
+               name="subject"
+               placeholder="Project Subject"
+               required>
+
+        <textarea name="message"
+                  rows="6"
+                  placeholder="Tell us about your project..."
+                  required></textarea>
+
+        <button type="submit">
+            SEND MESSAGE →
+        </button>
+    </form>
+
+    <p id="contactMessage"
+       class="contact-message"
+       role="status"
+       aria-live="polite"></p>
+
+    <p class="demo-notice">
+        Demo only — messages are not sent or stored.
+    </p>
+</section>
+
+    </main>
+
+    <footer>
+        NOVA DIGITAL — Demo by EO Web Design
+    </footer>
+    
+<script>
+    const serviceButtons =
+        document.querySelectorAll(".service-btn");
+
+    const serviceMessage =
+        document.getElementById("serviceMessage");
+
+    serviceButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const service = button.dataset.service;
+
+            serviceMessage.textContent =
+                service + " — More details coming soon!";
+        });
+    });
+</script>
+
+<script>
+    const novaForm =
+        document.getElementById("novaContactForm");
+
+    novaForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById(
+            "contactMessage"
+        ).textContent =
+            "Thanks for trying the demo! " +
+            "No message has been sent.";
+
+        novaForm.reset();
+    });
+</script>
+
+</body>
+</html>

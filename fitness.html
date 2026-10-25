@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX FITNESS | Push Beyond Limits</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            padding: 28px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: #101010;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff3030;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff3030;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 7%;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.85)
+                ),
+                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800")
+                center / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            color: #ff3030;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 100px);
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #ff3030;
+        }
+
+        .hero-description {
+            color: #ddd;
+            font-size: 19px;
+            line-height: 1.7;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff3030;
+            color: white;
+            padding: 17px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #d91f1f;
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(255,48,48,0.35);
+        }
+
+        .about {
+            padding: 100px 7%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .about h2 span {
+            color: #ff3030;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #252525;
+            color: #999;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+        }
+        
+/* APEX FITNESS PROGRAMMES */
+
+.programs {
+    padding: 100px 7%;
+    text-align: center;
+    background: #101010;
+}
+
+.section-label {
+    color: #ff3030;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.programs h2 {
+    font-size: clamp(32px, 5vw, 55px);
+}
+
+.programs h2 span {
+    color: #ff3030;
+}
+
+.section-description {
+    color: #aaa;
+    margin: 20px auto 50px;
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.program-card {
+    background: #191919;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 40px 25px;
+    transition: 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff3030;
+    box-shadow: 0 0 35px rgba(255,48,48,0.2);
+}
+
+.program-icon {
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.program-card h3 {
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.program-card p {
+    color: #aaa;
+    line-height: 1.7;
+    min-height: 90px;
+}
+
+.program-btn {
+    margin-top: 25px;
+    padding: 13px 22px;
+    background: transparent;
+    border: 1px solid #ff3030;
+    border-radius: 5px;
+    color: #ff3030;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.program-btn:hover {
+    background: #ff3030;
+    color: white;
+}
+
+.program-message {
+    color: #ff6666;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+@media (max-width: 850px) {
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-card p {
+        min-height: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .program-card,
+    .program-btn {
+        transition: none;
+    }
+}
+
+/* PREMIUM MEMBERSHIPS */
+
+.membership {
+    padding: 100px 7%;
+    background: #080808;
+    text-align: center;
+}
+
+.membership h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.membership h2 span {
+    color: #ff3030;
+}
+
+.membership-intro {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.billing-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 45px;
+}
+
+.billing-btn {
+    padding: 12px 25px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.billing-btn.selected {
+    background: #ff3030;
+    border-color: #ff3030;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.membership-card {
+    position: relative;
+    background: #171717;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 45px 25px;
+    transition: 0.3s;
+}
+
+.membership-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff3030;
+    box-shadow: 0 0 35px rgba(255,48,48,0.2);
+}
+
+.membership-card.featured {
+    border: 2px solid #ff3030;
+}
+
+.popular {
+    background: #ff3030;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.membership-card h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.membership-card p {
+    color: #aaa;
+}
+
+.price {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+.price small {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.membership-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.membership-card li {
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+}
+
+.membership-card li::before {
+    content: "✓ ";
+    color: #ff3030;
+}
+
+.join-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff3030;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.join-btn:hover {
+    background: #d91f1f;
+}
+
+.membership-message {
+    color: #ff6666;
+    margin-top: 30px;
+}
+
+.membership-note {
+    color: #888;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+@media (max-width: 850px) {
+    .membership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* APEX FOOTER */
+
+.apex-footer {
+    background: #101010;
+    padding: 70px 20px 35px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.apex-footer h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.apex-footer h2 span {
+    color: #ff3030;
+}
+
+.apex-footer p {
+    color: #aaa;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff3030;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 15px 0 30px;
+    border: 1px solid #ff3030;
+    border-radius: 6px;
+    color: #ff3030;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #ff3030;
+    color: white;
+}
+
+.footer-credit {
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">APEX<span>FITNESS</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#membership">Membership</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO APEX FITNESS</p>
+
+                <h1>PUSH BEYOND <span>LIMITS.</span></h1>
+
+                <p class="hero-description">
+                    Build strength, develop confidence and
+                    unlock your potential with a fitness
+                    experience designed around you.
+                </p>
+
+                <a href="#about" class="btn">
+                    EXPLORE APEX
+                </a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>BUILT FOR <span>PROGRESS.</span></h2>
+            <p>
+                APEX FITNESS is a fictional premium gym
+                concept created by EO Web Design.
+                A bold digital experience for people
+                who love fitness and movement.
+            </p>
+        </section>
+        
+<section class="programs" id="programs">
+    <p class="section-label">FIND YOUR PATH</p>
+    <h2>OUR <span>PROGRAMMES.</span></h2>
+    <p class="section-description">
+        Explore different ways to train, move and
+        build your fitness.
+    </p>
+
+    <div class="program-grid">
+
+        <div class="program-card">
+            <div class="program-icon">⚡</div>
+            <h3>STRENGTH TRAINING</h3>
+            <p>
+                Develop strength and learn effective
+                training techniques.
+            </p>
+            <button class="program-btn"
+                    data-program="Strength Training">
+                LEARN MORE →
+            </button>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🔥</div>
+            <h3>FITNESS & CONDITIONING</h3>
+            <p>
+                Improve endurance, movement and
+                overall fitness.
+            </p>
+            <button class="program-btn"
+                    data-program="Fitness & Conditioning">
+                LEARN MORE →
+            </button>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🎯</div>
+            <h3>PERSONAL TRAINING</h3>
+            <p>
+                Discover personalised coaching
+                tailored to individual goals.
+            </p>
+            <button class="program-btn"
+                    data-program="Personal Training">
+                LEARN MORE →
+            </button>
+        </div>
+
+    </div>
+
+    <p class="program-message" id="programMessage"
+       role="status" aria-live="polite"></p>
+</section>
+
+<section class="membership" id="membership">
+    <p class="section-label">JOIN THE MOVEMENT</p>
+    <h2>CHOOSE YOUR <span>PLAN.</span></h2>
+    <p class="membership-intro">
+        Flexible membership options for every journey.
+    </p>
+
+    <div class="billing-toggle">
+        <button class="billing-btn selected"
+                data-billing="monthly">Monthly</button>
+        <button class="billing-btn"
+                data-billing="yearly">Yearly</button>
+    </div>
+
+    <div class="membership-grid">
+
+        <div class="membership-card">
+            <h3>STARTER</h3>
+            <p>Build your foundation.</p>
+            <div class="price">
+                £<span data-monthly="19" data-yearly="190">19</span>
+                <small class="billing-period">/month</small>
+            </div>
+            <ul>
+                <li>Gym access</li>
+                <li>Basic equipment</li>
+                <li>Flexible training</li>
+            </ul>
+            <button class="join-btn">SELECT PLAN</button>
+        </div>
+
+        <div class="membership-card featured">
+            <div class="popular">MOST POPULAR</div>
+            <h3>PRO</h3>
+            <p>Take your training further.</p>
+            <div class="price">
+                £<span data-monthly="35" data-yearly="350">35</span>
+                <small class="billing-period">/month</small>
+            </div>
+            <ul>
+                <li>Full gym access</li>
+                <li>Group fitness classes</li>
+                <li>Training guidance</li>
+            </ul>
+            <button class="join-btn">SELECT PLAN</button>
+        </div>
+
+        <div class="membership-card">
+            <h3>ELITE</h3>
+            <p>A premium fitness experience.</p>
+            <div class="price">
+                £<span data-monthly="59" data-yearly="590">59</span>
+                <small class="billing-period">/month</small>
+            </div>
+            <ul>
+                <li>All PRO features</li>
+                <li>Personal coaching</li>
+                <li>Exclusive classes</li>
+            </ul>
+            <button class="join-btn">SELECT PLAN</button>
+        </div>
+
+    </div>
+
+    <p class="membership-message" id="membershipMessage"
+       role="status" aria-live="polite"></p>
+    <p class="membership-note">
+        Demonstration pricing only. No purchases are processed.
+    </p>
+</section>
+
+    </main>
+
+    <footer>
+        APEX FITNESS — Demo by EO Web Design
+        
+<footer class="apex-footer">
+    <h2>APEX<span>FITNESS</span></h2>
+    <p>Push Beyond Limits.</p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#programs">Programmes</a>
+        <a href="#membership">Membership</a>
+    </div>
+
+    <a href="index.html" class="back-btn">
+        ← Back to EO Web Design
+    </a>
+
+    <p class="footer-credit">
+        APEX FITNESS is a fictional concept
+        created by EO Web Design.
+    </p>
+</footer>
+
+    </footer>
+    
+<script>
+    const programButtons =
+        document.querySelectorAll(".program-btn");
+
+    const programMessage =
+        document.getElementById("programMessage");
+
+    programButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const program = button.dataset.program;
+
+            programMessage.textContent =
+                program + " — Full programme details coming soon!";
+        });
+    });
+</script>
+
+<script>
+    const billingButtons =
+        document.querySelectorAll(".billing-btn");
+
+    const prices =
+        document.querySelectorAll(".price span");
+
+    const periods =
+        document.querySelectorAll(".billing-period");
+
+    billingButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const billing = button.dataset.billing;
+
+            billingButtons.forEach(btn => {
+                btn.classList.toggle(
+                    "selected",
+                    btn === button
+                );
+            });
+
+            prices.forEach(price => {
+                price.textContent = price.dataset[billing];
+            });
+
+            periods.forEach(period => {
+                period.textContent =
+                    billing === "monthly" ? "/month" : "/year";
+            });
+        });
+    });
+
+    document.querySelectorAll(".join-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const plan = button.closest(
+                ".membership-card"
+            ).querySelector("h3").textContent;
+
+            document.getElementById(
+                "membershipMessage"
+            ).textContent =
+                plan + " selected! This is a demo, " +
+                "so no payment will be taken.";
+        });
+    });
+</script>
+
+</body>
+</html>
